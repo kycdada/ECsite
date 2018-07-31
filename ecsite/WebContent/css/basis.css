@@ -1,0 +1,175 @@
+	body{;
+			margin:0;
+			padding:0;
+			line-height:1.6;
+			letter-spacing:1px;
+			font-family:Verdana,Helvetica,sans-serif;
+			font-size:12px;
+			color:#333;
+			background:linear-gradient(-135deg,#36D1DC,#5B86E5)
+		}
+
+
+		table{
+			text-align:center;
+			margin:0 auto;
+
+		}
+
+		#top{
+			margin:50px auto;
+			position: relative;
+			color:#EDFFBE;
+			font-size: 20px;
+		}
+		#top:before{
+			content: "";
+			position: absolute;
+			top: -5px;
+			left: 50%;
+			width: 150px;
+			height: 70px;
+			border-radius: 50%;
+			border: 5px solid #a6ddb0;
+			border-left-color: transparent;
+			border-right-color: transparent;
+			-moz-transform: translateX(-50%);
+			-webkit-transform: translateX(-50%);
+			-ms-transform: translateX(-50%);
+			transform: translateX(-50%);
+		}
+
+
+		header{
+			width:100%;
+			height:60px;
+			background:black;
+
+		}
+
+		#main{
+		width:100%;
+
+		text-align:center;
+		margin:0 auto;
+		background:url(../images/hokkaido.png)  no-repeat,
+					url(../images/6360.png) no-repeat,
+					url(../images/6255.png) no-repeat,
+					url(../images/child.png) no-repeat,
+					url(../images/snowman_yukidaruma_couple.png) no-repeat;
+		background-position: 50%,
+							left bottom,
+							right top,
+							right bottom,
+							left top;
+		background-size:300px,150px,150px,150px,150px;
+
+		margin-bottom:20px;
+
+		}
+		body>img{
+		animation:spin 4s linear infinite;
+		}
+
+		footer{
+			width:100%;
+			height:20px;
+			background:white;
+			position:fixed;
+			bottom:0;
+
+		}
+		#text-center{
+			display:inline-block;
+			text-align:center;
+		}
+
+		#modal-login{
+			width:50%;
+			margin:15px auto;
+			padding:10px 20px;
+			border:2px solid #aaa;
+			background:#fff;
+			z-index:2;
+			display:none;
+			position:fixed;
+		}
+
+
+		.modal-link:hover{
+			cursor:pointer;
+			color:#f00;
+		}
+
+		#modal-overlay{
+			z-index:1;
+			display:none;
+			position:fixed;
+			top:0;
+			left:0;
+			width:100%;
+			height:120%;
+			background:rgba(0,0,0,0.75);
+		}
+
+		.modal-link{
+    		text-decoration: underline;
+			}
+
+		@keyframes spin{
+			100%{
+				transform:rotate(360deg);
+			}
+		}
+
+		.img{
+			animation:initial;
+			height:50px;
+		}
+		#headerMenu{
+			display:flex;
+			width:100%;
+		}
+		#headerMenu div{
+			width:100%;
+			text-align:center;
+			color: white;
+		}
+		#headerMenu div h2:hover{
+			color:#f00;
+		}
+		#headerMenu div h2 a:hover{
+			color:#f00
+		}
+		#headerMenu div h2{
+			cursor:pointer;
+		}
+		#headerMenu div h2 a{
+			color: white;
+			text-decoration:none;
+		}
+		#headerMenu div p{
+			display:inline-block;
+		}
+		.serch{
+			width:50px;
+			margin-left:10px;
+		}
+		#serch{
+			margin-top:7px;
+		}
+
+
+		#content{
+			width:70%;
+			margin:0 auto;
+			text-align:center;
+		}
+		.item{
+			background:rgba(255,255,255,0.5);
+			text-align:center;
+			word-wrap: break-word;
+		}
+
+
+

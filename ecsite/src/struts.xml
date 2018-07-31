@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<package name="com.internousdev.ecsite.action" extends="struts-default">
+
+	<global-results>
+		<result name="NullPointerException">error.jsp</result>
+	</global-results>
+
+	<global-exception-mappings>
+		<exception-mapping exception="java.lang.NullPointerException" result="NullPointerException"/>
+	</global-exception-mappings>
+
+	<action name="GoHomeAction" class="com.internousdev.ecsite.action.GoHomeAction" method="execute">
+		<result name="success">home.jsp</result>
+	</action>
+
+	<action name="HomeAction" class="com.internousdev.ecsite.action.HomeAction" method="execute">
+		<result name="success">buyItem.jsp</result>
+	</action>
+
+	<action name="LoginAction" class="com.internousdev.ecsite.action.LoginAction" method="execute">
+		<result name="input">home.jsp</result>
+		<result name="home">home.jsp</result>
+		<result name="error">home.jsp</result>
+		<result name="cart">cartDisplay.jsp</result>
+		<result name="buyItem">buyItem.jsp</result>
+		<result name="itemDetail">itemDetail.jsp</result>
+		<result name="buyItemConfirm">buyItemConfirm.jsp</result>
+		<result name="insertCart">insertComplete.jsp</result>
+	</action>
+
+	<action name="ItemListAction" class="com.internousdev.ecsite.action.ItemListAction">
+		<result name="error">error.jsp</result>
+		<result name="success">buyItem.jsp</result>
+	</action>
+
+
+	<action name="UserCreateAction" class="com.internousdev.ecsite.action.UserCreateAction" method="execute">
+		<result name="success">userCreate.jsp</result>
+	</action>
+
+	<action name="UserCreateConfirmAction" class="com.internousdev.ecsite.action.UserCreateConfirmAction" method="execute">
+	<result name="success">userCreateConfirm.jsp</result>
+	<result name="error">userCreate.jsp</result>
+	<result name="input">userCreate.jsp</result>
+	</action>
+
+	<action name="UserCreateCompleteAction" class="com.internousdev.ecsite.action.UserCreateCompleteAction" method="execute">
+	<interceptor-ref name= "defaultStack" />
+		<interceptor-ref name="token"/>
+		<result name="invalid.token">userCreateComplete.jsp</result>
+		<result name="success">userCreateComplete.jsp</result>
+		<result name="error">error.jsp</result>
+	</action>
+
+	<action name="BuyItemAction" class="com.internousdev.ecsite.action.BuyItemAction" method="execute">
+		<result name="success">buyItemConfirm.jsp</result>
+		<result name="error">buyItem.jsp</result>
+	</action>
+
+	<action name="BuyItemCompleteAction" class="com.internousdev.ecsite.action.BuyItemCompleteAction" method="execute">
+	<interceptor-ref name= "defaultStack" />
+			<interceptor-ref name="token"/>
+			<result name="invalid.token">buyItemComplete.jsp</result>
+		<result name="success">buyItemComplete.jsp</result>
+	</action>
+
+	<action name="MyPageAction" class="com.internousdev.ecsite.action.MyPageAction" method="execute">
+		<result name="success">myPage.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="LogoutAction" class="com.internousdev.ecsite.action.LogoutAction" method="execute">
+		<result name="success">home.jsp</result>
+	</action>
+
+	<action name="ItemDetailAction" class="com.internousdev.ecsite.action.ItemDetailAction" method="execute">
+		<result name="success">itemDetail.jsp</result>
+	</action>
+
+	<action name="CartInsertAction" class="com.internousdev.ecsite.action.CartInsertAction" method="execute">
+		<interceptor-ref name= "defaultStack" />
+		<interceptor-ref name="token"/>
+		<result name="invalid.token">insertComplete.jsp</result>
+		<result name="success">insertComplete.jsp</result>
+		<result name="error">buyItem.jsp</result>
+	</action>
+
+	<action name="CartDisplayAction" class="com.internousdev.ecsite.action.CartDisplayAction" method="execute">
+		<result name="success">cartDisplay.jsp</result>
+		<result name="error">cartDisplay.jsp</result>
+	</action>
+
+	<action name="HostLoginAction" class="com.internousdev.ecsite.action.HostLoginAction" method="execute">
+		<result name="success">hostMenu.jsp</result>
+		<result name="input">home.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="MenuAction" class="com.internousdev.ecsite.action.MenuAction" method="execute">
+		<result name="success">menu.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="MenuEditAction" class="com.internousdev.ecsite.action.MenuEditAction" method="execute">
+		<result name="success">menuEdit.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateMenuAction" class="com.internousdev.ecsite.action.CreateMenuAction" method="execute">
+		<result name="success">createMenu.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateMenuCompleteAction" class="com.internousdev.ecsite.action.CreateMenuCompleteAction" method="execute">
+		<interceptor-ref name= "defaultStack" />
+		<interceptor-ref name="token"/>
+		 <interceptor-ref name= "fileUpload" >
+		 	<param name="maximumSize">1500000</param>
+			<param name="allowedTypes">image/jpeg,image/gif</param>
+     	  </interceptor-ref>
+
+		<result name="success">menu.jsp</result>
+		<result name="invalid.token">menu.jsp</result>
+		<result name="input">createMenu.jsp</result>
+		<result name="error">createMenu.jsp</result>
+	</action>
+
+
+	<action name="EditCompleteAction" class="com.internousdev.ecsite.action.EditCompleteAction" method="execute">
+	 <interceptor-ref name= "fileUpload" >
+		 	<param name="maximumSize">1500000</param>
+			<param name="allowedTypes">image/jpeg,image/gif</param>
+     	  </interceptor-ref>
+<!--      	  <interceptor-ref name= "defaultStack" /> -->
+		<interceptor-ref name="basicStack"/>
+		<interceptor-ref name="validation"/>
+		<interceptor-ref name="workflow"></interceptor-ref>
+		<result name="input">menuEdit.jsp</result>
+		<result name="error">menu.jsp</result>
+		<result name="success">menu.jsp</result>
+	</action>
+
+	<action name="UserEditAction" class="com.internousdev.ecsite.action.UserEditAction" method="execute">
+		<result name="success">userList.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="UserCompilationAction" class="com.internousdev.ecsite.action.UserCompilationAction" method="execute">
+		<result name="success">userCompilation.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="UserCompilationConfirmAction" class="com.internousdev.ecsite.action.UserCompilationConfirmAction"  method="execute">
+		<result name="success">userCompilationConfirm.jsp</result>
+		<result name="input">userCompilation.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="UserCompilationCompleteAction" class="com.internousdev.ecsite.action.UserCompilationCompleteAction" method="execute">
+		<result name="success">userList.jsp</result>
+		<result name="home">home.jsp</result>
+		<result name="error">userList.jsp</result>
+	</action>
+
+	<action name="SubMasterAction" class="com.internousdev.ecsite.action.SubMasterAction" method="execute">
+		<result name="success">masterMenu.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateSubMasterAction" class="com.internousdev.ecsite.action.CreateSubMasterAction" method="execute">
+		<result name="success">createSubMaster.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateSubMasterConfirmAction" class="com.internousdev.ecsite.action.CreateSubMasterConfirmAction" method="execute">
+		<result name="success">createSubMasterConfirm.jsp</result>
+		<result name="input">createSubMaster.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="CreateSubMasterCompleteAction" class="com.internousdev.ecsite.action.CreateSubMasterCompleteAction" method="execute">
+	<interceptor-ref name= "defaultStack" />
+		<interceptor-ref name="token"/>
+		<result name="invalid.token">masterMenu.jsp</result>
+		<result name="success">masterMenu.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="SubMasEditAction" class="com.internousdev.ecsite.action.SubMasEditAction" method="execute">
+		<result name="success">masterMenu.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="SubMasNameAction" class="com.internousdev.ecsite.action.SubMasNameAction" method="execute">
+		<result name="success">subMasName.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="SubMasNameConfirmAction" class="com.internousdev.ecsite.action.SubMasNameConfirmAction" method="execute">
+		<result name="success">subMasNameConfirm.jsp</result>
+		<result name="input">subMasName.jsp</result>
+		<result name="error">home.jsp</result>
+	</action>
+
+	<action name="GoHostAction" class="com.internousdev.ecsite.action.GoHostAction" method="execute">
+		<result name="success">hostMenu.jsp</result>
+	</action>
+
+	</package>
+</struts>

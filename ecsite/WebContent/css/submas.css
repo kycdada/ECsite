@@ -1,0 +1,22 @@
+	.ON{
+		background:lightgreen;
+	}
+
+	td{
+		text-align:center;
+	}
+
+	.OFF{
+		background:lightgray;
+	}
+
+	.reverse{
+		background:white;
+	}
+	body{
+		background:#5B86E5;
+	}
+	.confirm{
+		font-size:15px;
+	}
+
